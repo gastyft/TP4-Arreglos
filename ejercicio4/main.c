@@ -1,23 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+#include "../Librerias/pila.h"
 #define DIM 4
 #define ESC 27
 
 /**
-Hacer una funciÛn que reciba como par·metro un arreglo,
-la cantidad de elementos (v·lidos) cargados en Èl y una Pila.
-La funciÛn debe copiar los elementos del arreglo en la pila.
+Hacer una funci√≥n que reciba como par√°metro un arreglo,
+la cantidad de elementos (v√°lidos) cargados en √©l y una Pila.
+La funci√≥n debe copiar los elementos del arreglo en la pila.
 */
 
 void cargar_arreglo(int arreglo[DIM],int *validos);
-
+void arr_pila(int arreglo[DIM], Pila *p,int validos);
 int main()
 {
     system("COLOR B");
+    Pila p;
+    inicpila(&p);
+
     int arr[DIM],validos=0;
     cargar_arreglo(arr,&validos);
-    printf("Validos son %d",validos);
+    arr_pila(arr,&p,validos);
+mostrar(&p);
 
     return 0;
 }
@@ -41,3 +46,20 @@ void cargar_arreglo(int arreglo[DIM],int *validos)
     }
     *validos=i;
 }
+
+void arr_pila(int arreglo[DIM], Pila *p,int validos){
+
+int i=0;
+
+while(i<validos){
+    apilar(p,arreglo[i]);
+
+    i++;
+}
+
+
+
+}
+
+
+
